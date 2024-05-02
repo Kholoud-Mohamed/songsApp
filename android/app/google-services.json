@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "80073109",
+    "project_id": "song-25f37",
+    "storage_bucket": "song-25f37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80073109:android:537d8cd77951b31b44a69c",
+        "android_client_info": {
+          "package_name": "com.example.song_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-Z-RqN-HrbjurH_5Azv_SgC8gVIykQA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
