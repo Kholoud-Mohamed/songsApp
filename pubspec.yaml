@@ -39,6 +39,13 @@ dependencies:
   firebase_auth: ^4.19.4
   modal_progress_hud_nsn: ^0.5.1
   cloud_firestore: ^4.17.2
+  audioplayers: ^6.0.0
+  intl: ^0.19.0
+  scrollable_positioned_list: ^0.3.8
+  audio_video_progress_bar: ^2.0.2
+  spotify: ^0.13.6+1
+  youtube_explode_dart: ^2.2.0
+  palette_generator: ^0.3.3+3
 
 dev_dependencies:
   flutter_test:

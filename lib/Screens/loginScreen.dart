@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:song_app/Screens/musicScreen.dart';
+import 'package:song_app/Screens/music_list.dart';
 import 'package:song_app/constants.dart';
 import 'package:song_app/helperWidgets/customButton.dart';
 import 'package:song_app/helperWidgets/customTextField.dart';
+import 'package:song_app/helperWidgets/models/music.dart';
 import 'package:song_app/helperWidgets/passwordfield.dart';
 import 'package:song_app/helperWidgets/show_snack_bar.dart';
 
@@ -19,6 +21,11 @@ class _LogInScreenState extends State<LogInScreen> {
   bool isLoading = false;
   GlobalKey<FormState> formKey = GlobalKey();
   String? email, password;
+  List<Music> playlist = [
+    Music(trackId: '7MXVkk9YMctZqd1Srtv4MB'), // Add more songs here
+    Music(trackId: '3WOiSsqfXPZAtGTr2PFj6S'),
+    Music(trackId: '11dFghVXANMlKmJXsNCbNl'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -204,7 +211,8 @@ class _LogInScreenState extends State<LogInScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => musicScreen()), // Navigate to musicScreen
+          builder: (context) =>
+              MyHomePage(playlist: playlist)), // Navigate to musicScreen
     );
   }
 }

@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:song_app/Screens/musicScreen.dart';
+import 'package:song_app/Screens/music_list.dart';
 import 'package:song_app/constants.dart';
 import 'package:song_app/helperWidgets/customButton.dart';
 import 'package:song_app/helperWidgets/customTextField.dart';
+import 'package:song_app/helperWidgets/models/music.dart';
 import 'package:song_app/helperWidgets/passwordfield.dart';
 import 'package:song_app/helperWidgets/show_snack_bar.dart';
 
@@ -24,6 +26,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool isLoading = false;
   GlobalKey<FormState> formKey = GlobalKey();
   String? _confirmPasswordError;
+  List<Music> playlist = [
+    Music(trackId: '7MXVkk9YMctZqd1Srtv4MB'), // Add more songs here
+    Music(trackId: '3WOiSsqfXPZAtGTr2PFj6S'),
+    Music(trackId: '11dFghVXANMlKmJXsNCbNl'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +165,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => musicScreen()),
+                                      builder: (context) =>
+                                          MyHomePage(playlist: playlist)),
                                 );
                               } on FirebaseAuthException catch (ex) {
                                 if (ex.code == 'weak-password') {
