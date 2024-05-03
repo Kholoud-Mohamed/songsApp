@@ -33,39 +33,45 @@ class MyHomePage extends StatelessWidget {
 
           // Set specific song names based on index
           if (index == 0) {
+            songName = 'Surah Al-Baqarah';
+            artistName = 'Mishary Rashed';
+          } else if (index == 1) {
+            songName = 'Surah Yasin';
+            artistName = 'Mishary Rashed';
+          } else if (index == 2) {
             songName = 'Starboy';
             artistName = 'The Weeknd';
-          } else if (index == 1) {
+          } else if (index == 3) {
             songName = 'Yazmeely';
             artistName = 'Muhab';
-          } else if (index == 2) {
+          } else if (index == 4) {
             songName = 'Cut to the Feeling';
             artistName = 'Carly Rae Jepsen';
-          } else if (index == 3) {
+          } else if (index == 5) {
             songName = 'Allah Aleik Ya Seedy';
             artistName = 'Ehab Tawfik';
-          } else if (index == 4) {
+          } else if (index == 6) {
             songName = 'Ya Hayat Albe';
             artistName = 'Haifa Wehbe';
-          } else if (index == 5) {
+          } else if (index == 7) {
             songName = 'Wada3 ya donia Wada3';
             artistName = 'Hamo Beka';
-          } else if (index == 6) {
+          } else if (index == 8) {
             songName = 'Hayaty Mesh Tmam';
             artistName = 'Ramy Sabry';
-          } else if (index == 7) {
+          } else if (index == 9) {
             songName = 'Haygely Mawgo3';
             artistName = 'Ramy Ashour';
-          } else if (index == 8) {
+          } else if (index == 10) {
             songName = 'Sabry Alill';
             artistName = 'Sherine';
-          } else if (index == 9) {
+          } else if (index == 11) {
             songName = 'Diva';
             artistName = 'Sharmoofers';
-          } else if (index == 10) {
+          } else if (index == 12) {
             songName = 'Ryah El Hayah';
             artistName = 'Hamza Namira';
-          } else if (index == 11) {
+          } else if (index == 13) {
             songName = '7ala';
             artistName = 'Afroto';
           }

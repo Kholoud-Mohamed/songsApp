@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:song_app/Screens/musicScreen.dart';
 import 'package:song_app/Screens/music_list.dart';
 import 'package:song_app/constants.dart';
 import 'package:song_app/helperWidgets/customButton.dart';
@@ -26,15 +25,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool isLoading = false;
   GlobalKey<FormState> formKey = GlobalKey();
   String? _confirmPasswordError;
-  List<Music> playlist =  [
+  List<Music> playlist = [
+    Music(trackId: '044wYqqUEQ9toXSaDOeMMu'), // Surah Al-Baqarah
+    Music(trackId: '1PxMbYJwmkjddv28o51e5C'), // Surah Yasin
     Music(trackId: '7MXVkk9YMctZqd1Srtv4MB'),
     Music(trackId: '3WOiSsqfXPZAtGTr2PFj6S'),
     Music(trackId: '11dFghVXANMlKmJXsNCbNl'),
     Music(trackId: '2vknxlulbj1JApedTlmrZv'),
     Music(trackId: '6GkrhEQYOpCurp8gJWz91H'),
     Music(trackId: '4HXRJ3Bz49FEDeEOfdtUJO'),
-    Music(trackId: '5LtHZB7vU02HtNoOzNcVhc'),
-    Music(trackId: '5rCq30EbJ3DfZPKybGZj8F'),
+    Music(trackId: '4Guq7XrO1FjduwFBsVbr0E'),
+    Music(trackId: '2Heqj9jtxarmecKxycGSWn'),
     Music(trackId: '7qLXBcYW78is9LygQBziAU'),
     Music(trackId: '0ECT1q8mtxBE7cCRIeCXO2'),
     Music(trackId: '1ZuHXbFUhAb3SHOn4TzQbW'),
@@ -47,7 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       inAsyncCall: isLoading,
       child: Scaffold(
         body: Container(
-          padding: EdgeInsets.only(top: 30),
+          padding: const EdgeInsets.only(top: 30),
           margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           height: double.infinity,
           width: double.infinity,
@@ -172,23 +173,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               });
                               try {
                                 await registerUser();
-
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          MyHomePage(playlist: playlist)),
-                                );
                               } on FirebaseAuthException catch (ex) {
                                 if (ex.code == 'weak-password') {
-                                  showSnackBar(context, 'weak password');
+                                  showSnackBar(context, 'Weak password');
                                 } else if (ex.code == 'email-already-in-use') {
-                                  showSnackBar(context, 'email already exists');
+                                  showSnackBar(context, 'Email already exists');
                                 }
                               } catch (ex) {
-                                showSnackBar(context, 'there was an error');
+                                // showSnackBar(context, 'There was an error');
                               } finally {
-                                // Reset isLoading flag after navigation is completed
+                                // Reset isLoading flag after signup process is completed
                                 setState(() {
                                   isLoading = false;
                                 });
@@ -247,23 +241,45 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> registerUser() async {
-    UserCredential userCredential =
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: email!,
-      password: password!,
-    );
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email!,
+        password: password!,
+      );
 
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(userCredential.user!.uid)
-        .set({
-      'name': name,
-      'email': email,
-    });
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => musicScreen()),
-    );
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .set({
+        'name': name,
+        'email': email,
+      });
+      setState(() {
+        isLoading = false;
+      });
+
+      // If user registration is successful without any exceptions, navigate to the MusicList screen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyHomePage(playlist: playlist)),
+      );
+    } on FirebaseAuthException catch (ex) {
+      if (ex.code == 'weak-password') {
+        showSnackBar(context, 'Weak password');
+      } else if (ex.code == 'email-already-in-use') {
+        showSnackBar(context, 'email-already-in-use');
+      } else {
+        showSnackBar(context, 'Error: ${ex.message}');
+      }
+    } catch (ex) {
+      showSnackBar(context, 'Error: $ex');
+    } finally {
+      // Reset isLoading flag after navigation is completed
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   bool isEmailValid(String email) {
