@@ -26,14 +26,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool isLoading = false;
   GlobalKey<FormState> formKey = GlobalKey();
   String? _confirmPasswordError;
-  List<Music> playlist = [
-    Music(trackId: '7MXVkk9YMctZqd1Srtv4MB'), // Add more songs here
+  List<Music> playlist =  [
+    Music(trackId: '7MXVkk9YMctZqd1Srtv4MB'),
     Music(trackId: '3WOiSsqfXPZAtGTr2PFj6S'),
     Music(trackId: '11dFghVXANMlKmJXsNCbNl'),
     Music(trackId: '2vknxlulbj1JApedTlmrZv'),
     Music(trackId: '6GkrhEQYOpCurp8gJWz91H'),
     Music(trackId: '4HXRJ3Bz49FEDeEOfdtUJO'),
-    Music(trackId: '5LtHZB7vU02HtNoOzNcVhc'), // Add more songs here
+    Music(trackId: '5LtHZB7vU02HtNoOzNcVhc'),
     Music(trackId: '5rCq30EbJ3DfZPKybGZj8F'),
     Music(trackId: '7qLXBcYW78is9LygQBziAU'),
     Music(trackId: '0ECT1q8mtxBE7cCRIeCXO2'),

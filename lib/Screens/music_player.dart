@@ -117,7 +117,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
               Expanded(
                 flex: 2,
                 child: isLoading
-                    ? Center(
+                    ? const Center(
                         child:
                             CircularProgressIndicator()) // Show loading indicator if loading
                     : Center(
@@ -168,7 +168,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                           onPressed: () {
                             switchSong(currentSongIndex - 1);
                           },
-                          icon: Icon(Icons.skip_previous,
+                          icon: const Icon(Icons.skip_previous,
                               color: Colors.white, size: 36),
                         ),
                         IconButton(
@@ -192,7 +192,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                           onPressed: () {
                             switchSong(currentSongIndex + 1);
                           },
-                          icon: Icon(Icons.skip_next,
+                          icon: const Icon(Icons.skip_next,
                               color: Colors.white, size: 36),
                         ),
                       ], //Childre
