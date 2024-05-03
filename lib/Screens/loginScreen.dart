@@ -55,18 +55,19 @@ class _LogInScreenState extends State<LogInScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(right: 210, top: 20),
+                              padding:
+                                  const EdgeInsets.only(right: 210, top: 20),
                               child: Text(
                                 'Hello !',
                                 style: TextStyle(
                                     fontFamily: 'Langar',
                                     // fontWeight: FontWeight.bold,
                                     fontSize: 29,
-                                    color: Color.fromARGB(255, 128, 133, 134)),
+                                    color: grayText),
                               ),
                             ),
                             Text(
@@ -75,7 +76,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                 fontFamily: 'Langar',
                                 // fontWeight: FontWeight.bold,
                                 fontSize: 29,
-                                color: Color(0xff1F5D6B),
+                                color: grayText,
                               ),
                             ),
                           ],

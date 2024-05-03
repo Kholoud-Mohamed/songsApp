@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 //before log in
-Color loginCard = const Color(0xffF6F8F8);
+Color btnColor = const Color(0xff8C9293);
+Color loginCard = const Color(0xffFFE2E9);
+Color grayText = const Color(0xff5B6869);
 List<Color> backgroundinitial = [
   const Color.fromARGB(255, 225, 173, 186),
   const Color.fromARGB(255, 225, 173, 186),
+  const Color(0xffC4DEE4),
   Colors.white,
   Colors.white,
 ];

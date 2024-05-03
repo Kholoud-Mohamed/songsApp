@@ -20,14 +20,6 @@ class IntialScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "Hi , I'm Soothe",
-                style: TextStyle(
-                    fontSize: 25,
-                    fontFamily: 'Langar',
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff1F5D6B)),
-              ),
               Image.asset(
                 'images/photo_2024-05-02_11-24-03-removebg-preview.png',
                 height: 300,

@@ -30,6 +30,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     Music(trackId: '7MXVkk9YMctZqd1Srtv4MB'), // Add more songs here
     Music(trackId: '3WOiSsqfXPZAtGTr2PFj6S'),
     Music(trackId: '11dFghVXANMlKmJXsNCbNl'),
+    Music(trackId: '2vknxlulbj1JApedTlmrZv'),
+    Music(trackId: '6GkrhEQYOpCurp8gJWz91H'),
+    Music(trackId: '4HXRJ3Bz49FEDeEOfdtUJO'),
+    Music(trackId: '5LtHZB7vU02HtNoOzNcVhc'), // Add more songs here
+    Music(trackId: '5rCq30EbJ3DfZPKybGZj8F'),
+    Music(trackId: '7qLXBcYW78is9LygQBziAU'),
+    Music(trackId: '0ECT1q8mtxBE7cCRIeCXO2'),
+    Music(trackId: '1ZuHXbFUhAb3SHOn4TzQbW'),
+    Music(trackId: '00TO3hVgOAgfKrRjrKEZxx'),
   ];
 
   @override
@@ -38,6 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       inAsyncCall: isLoading,
       child: Scaffold(
         body: Container(
+          padding: EdgeInsets.only(top: 30),
           margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           height: double.infinity,
           width: double.infinity,
@@ -58,17 +68,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(right: 205, top: 20),
+                              padding:
+                                  const EdgeInsets.only(right: 205, top: 20),
                               child: Text(
                                 'Welcome!',
                                 style: TextStyle(
                                   fontFamily: 'Langar',
                                   fontSize: 24,
-                                  color: Color.fromARGB(255, 128, 133, 134),
+                                  color: grayText,
                                 ),
                               ),
                             ),
@@ -77,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               style: TextStyle(
                                 fontFamily: 'Langar',
                                 fontSize: 25,
-                                color: Color(0xff1F5D6B),
+                                color: grayText,
                               ),
                             ),
                           ],

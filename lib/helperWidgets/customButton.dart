@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:song_app/constants.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({this.onTap, required this.text});
@@ -11,7 +12,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xff92bec9),
+          color: btnColor,
           borderRadius: BorderRadius.circular(20),
         ),
         width: 190,
