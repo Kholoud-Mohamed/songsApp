@@ -160,8 +160,8 @@ class _LogInScreenState extends State<LogInScreen> {
                               setState(() {});
                               try {
                                 await loginUser();
-                                Navigator.pushNamed(context, 'navigator',
-                                    arguments: email);
+                                //   Navigator.pushNamed(context, 'navigator',
+                                //       arguments: email);
                               } on FirebaseAuthException catch (ex) {
                                 if (ex.code == 'user-not-found') {
                                   showSnackBar(context, 'user not found');
